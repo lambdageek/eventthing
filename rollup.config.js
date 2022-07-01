@@ -4,6 +4,8 @@ import typescript from "@rollup/plugin-typescript";
 import copy from "rollup-plugin-copy-watch";
 import serve from "rollup-plugin-serve";
 
+const watching = process.env.ROLLUP_WATCH === "true";
+
 const codeConfig = {
     treeshake: true,
     input: "src/eventthing.ts",
@@ -16,14 +18,14 @@ const codeConfig = {
     plugins: [
         typescript(),
         copy({
-            watch: "static_files",
+            watch: watching && "static_files",
             targets: [
                 {
                     src: "static_files/**/*", dest: "wwwroot",
                 },
             ]
         }),
-        serve('wwwroot')
+        watching && serve('wwwroot'),
     ],
 };
 
