@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "target": "ES2018",
+        "strict": true,
+        "sourceMap": false,
+        "noImplicitAny": true,
+        "noEmitOnError": true,
+        "lib": [ "esnext", "dom" ],
+        "outDir": "wwwroot",
+    },
+    "include": [
+        "./src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}
